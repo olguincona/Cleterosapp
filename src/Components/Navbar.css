@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color:darkgreen
+}
+nav { 
+    display: flex;
+    justify-content: center;
+
+}
+img{
+    width: 10%;
+}
+a{
+    margin: 10px;
+    border: 10px;
+    border-radius: 5px;
+    color: aliceblue;
+    font-size: 20px;
+    font-weight: bolder;
+    font-style: normal;
+}
