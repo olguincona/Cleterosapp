@@ -2,6 +2,7 @@ import React from "react";
 import carro from '../Assets/carro.png';
 import logo from '../Assets/pista.jpg'
 import './Navbar.css'
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
     return (
@@ -14,9 +15,11 @@ const Navbar = () => {
                 <a href="">Categoria 3</a>
                 <a href="">Categoria 4</a>
             </nav>
-            <img src={carro} alt="" />
+            <CartWidget />
+            
         </header>
     )
 }
+
 
 export default Navbar

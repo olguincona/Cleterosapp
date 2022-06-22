@@ -1,11 +1,12 @@
 import React from 'react';
-import Navbar from './Components/Navbar.js'
-import logo from './logo.svg';
+import Navbar from './Components/Navbar.js';
 import './App.css';
-
+import ItemListContainer from './Components/ItemListContainer.jsx';
+import CartWidget from './Components/CartWidget.jsx';
 const App = () => {
   return (
-    <Navbar />
+    <Navbar />,
+    <ItemListContainer valor={'Hola'}/>
   );
 }
 
