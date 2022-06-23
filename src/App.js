@@ -1,12 +1,15 @@
 import React from 'react';
 import Navbar from './Components/Navbar.js';
 import './App.css';
-import ItemListContainer from './Components/ItemListContainer.jsx';
-import CartWidget from './Components/CartWidget.jsx';
+import ItemListContainer from './Components/ItemListContainer.js';
+import CartWidget from './Components/CartWidget.js';
 const App = () => {
   return (
-    <Navbar />,
-    <ItemListContainer valor={'Hola'}/>
+    <>
+      <Navbar />,
+      <ItemListContainer valor={'Hola'}/>
+    </>
+    
   );
 }
 
