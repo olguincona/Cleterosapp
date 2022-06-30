@@ -1,6 +1,16 @@
 import React from "react";
-const CartWidget = () => (
-    <img src="../Assets/carro.png" alt="" />
-)
+import { BsCart4 } from 'react-icons/bs'
+
+const CartWidget = () => {
+    return (
+        <>
+            <button>
+            <BsCart4 className='text-white' size={20}/>
+            </button>
+        </>
+        
+    )
+}
+    
 
 export default CartWidget

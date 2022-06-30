@@ -1,11 +1,11 @@
-header {
+.divfondo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     background-color:darkgreen
 }
-nav { 
+.snave { 
     display: flex;
     justify-content: center;
 
@@ -13,7 +13,7 @@ nav {
 img{
     width: 10%;
 }
-a{
+li{
     margin: 10px;
     border: 10px;
     border-radius: 5px;
