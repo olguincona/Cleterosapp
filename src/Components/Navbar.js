@@ -7,17 +7,19 @@ import CartWidget from "./CartWidget";
 const Navbar = () => {
     return (
         <>
-            <header>
-                <img src={logo} alt="" />
-                <h1>Tienda online</h1>
-                <nav>
-                    <a href="">Categoria 1</a>
-                    <a href="">Categoria 2</a>
-                    <a href="">Categoria 3</a>
-                    <a href="">Categoria 4</a>
-                </nav>
-                <CartWidget />
-            </header>
+            <nav>
+                <div className="divfondo">
+                    <img src={logo} alt="" />
+                    <h1>Tienda online</h1>
+                    <ul>
+                        <li href="">Categoria 1</li>
+                        <li href="">Categoria 2</li>
+                        <li href="">Categoria 3</li>
+                        <li href="">Categoria 4</li>
+                    </ul>
+                    <CartWidget />
+                </div>  
+            </nav>
         </>
         
     )
