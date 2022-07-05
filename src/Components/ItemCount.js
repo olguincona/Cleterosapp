@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 
-const ItemCount = ({ stock }) => {
-
-    const [cuenta, setCuenta] = useState(0)
+const ItemCount = ({ stock, initial }) => {
+    const [cuenta, setCuenta] = useState(initial)
     const sumar = () => {
         if (cuenta < stock){
-            setCuenta(cuenta +1)
+            setCuenta(cuenta + 1)
         }
         if (cuenta >= stock){
         alert("No se puede agregar mas")
@@ -14,7 +13,7 @@ const ItemCount = ({ stock }) => {
          }
         }
     const restar =() => {
-        if (cuenta >0){
+        if (cuenta > initial){
             setCuenta(cuenta - 1)}
         }
     const onAdd = () => {
