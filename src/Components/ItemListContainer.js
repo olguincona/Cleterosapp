@@ -18,31 +18,24 @@ const promesa = new Promise((res, rej)=>{
     }, 2000);
 });
 
-const ItemListContainer = ({valor}) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(()=>{
-        promesa.then((data)=>{
+        promesa
+        .then((data)=>{
            console.log(data);
            setProducts(data); 
-        }).catch(() => {
-            console.log('Algo salio mal')
         })
-        
+        .catch(() => {
+            console.log("Algo salio mal");
+        });
     }, []);
-
-    const onAdd = (count) => {
-        console.log('Hola quiero ' + count + ' unidades de este producto')
-    }
     return (
         <>
-            <div>
-                <h1 href="#" style={{color:"black"}}>{valor}</h1>
-            </div>
-            <ItemCount stock={6} initial = {1} onAdd={onAdd}/>
-            {products.map((product) => <div key={product.id}>{product.title}</div>)}
+            <ItemList items={products} />
         </>
-    )
-}
+    );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

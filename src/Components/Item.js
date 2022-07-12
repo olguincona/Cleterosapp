@@ -1,15 +1,14 @@
 import React from 'react'
 
-const promesa = new Promise((res, rej)=>{
-    setTimeout(() =>{
-        res(productos);
-    }, 2000);
-});
-
-function Item() {
-  return (
-    <div>Item</div>
-  )
+function Item({product}) {
+  const {title, description, price} = product;
+    return (
+      <div>
+        <h4>{title}</h4>
+        <p>{description}</p> <p>{price}</p>
+      </div>
+    );
 }
+
 
 export default Item
