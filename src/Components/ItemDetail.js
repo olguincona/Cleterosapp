@@ -1,11 +1,12 @@
 import React from 'react'
 
-function ItemDetail() {
+function ItemDetail({product}) {
   return (
-    <h3>Decripcion producto</h3>,
-    <img></img>,
-    <p>Precio</p>
-  )
+    <>
+      <h3>{product.title}</h3>
+      <p>{product.price}</p>
+    </>
+  );
 }
 
 export default ItemDetail

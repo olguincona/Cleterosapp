@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import ItemDetail from "./ItemDetail";
 
 const product = [
-                        {id:0, title:'Marco',
-                         description: 'Cuadro de bicicleta', 
-                         price: 150, 
-                         pictureUrl:'foto'},
-                    ]
+   {id:6, 
+    title:"Marco",
+    description: "Cuadro de bicicleta", 
+    price: 150, 
+    pictureUrl:"foto"
+  },
+];
 
 const getItem = new Promise((res, rej)=>{
     setTimeout(() =>{
@@ -14,9 +17,15 @@ const getItem = new Promise((res, rej)=>{
 });
 
 function ItemDetailContainer() {
-  return (
-    <div>ItemDetailContainer</div>
-  )
+  const [product, setProducts] =useState ([]);
+  useEffect(() => {
+    getItem
+      .then((res) => {
+        setProducts(res.find((product)=>product.id == id));
+        })
+        .catch((error) => console.log(error));
+  }, []);
+  return <ItemDetail product={product}/>;
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
