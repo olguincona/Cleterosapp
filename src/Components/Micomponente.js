@@ -1,9 +1,15 @@
 import React from 'react'
 
-function Micomponente() {
+const Micomponente = () => {
+
+  const manejarClick = () => {
+    console.log('Hiciste click');
+  }
   return (
-    <div>Micomponente</div>
-  )
+    <div>
+      <button onClick={manejarClick}>Click</button>
+    </div>
+  );
 }
 
 export default Micomponente
