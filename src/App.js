@@ -6,6 +6,7 @@ import CartWidget from './Components/CartWidget.js';
 import Micomponente from './Components/Micomponente.js';
 import ItemDetailContainer from './Components/ItemDetailContainer.js';
 import Cart from './Components/Cart.js';
+import CustomProvider from './Components/CartContext.js';
 
 import {
   BrowserRouter,
@@ -17,9 +18,8 @@ import { CartContext } from './Components/CartContext.js';
 
 function App() {
   return (
-    <>
-    <CartContext />
     <BrowserRouter>
+      <CustomProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<ItemListContainer valor="Hola"/>} />
@@ -27,10 +27,8 @@ function App() {
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-        {/* <ItemListContainer valor="Hola"/>
-        <ItemDetailContainer /> */}
+        </CustomProvider>
       </BrowserRouter>
-    </>
   );
 }
 

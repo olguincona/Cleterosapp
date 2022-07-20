@@ -1,10 +1,13 @@
 import React, { createContext } from 'react'
 
 export const contexto = createContext([{name:'Marco'}, {price:150}, {quantity:10}]);
-const CartContext = () => {
+const { Provider } = contexto;
+const CustomProvider = ({ children }) => {
   return (
-    <div>CartContext</div>
+    <Provider>
+    {children}
+    </Provider>
   )
 }
 
-export default CartContext
+export default CustomProvider
