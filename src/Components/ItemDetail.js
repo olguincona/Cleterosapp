@@ -4,7 +4,7 @@ import ItemCount from './ItemCount';
 function ItemDetail({product}) {
   return (
     <>
-      <h3>{product.title}</h3>
+      <h3>{product.name}</h3>
       <p>{product.price}</p>
       <ItemCount />
     </>

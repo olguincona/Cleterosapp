@@ -3,7 +3,7 @@ import ItemDetail from "./ItemDetail";
 
 const product = [
    {id:6, 
-    title:"Marco",
+    name:"Marco",
     description: "Cuadro de bicicleta", 
     price: 150, 
     pictureUrl:"foto"
