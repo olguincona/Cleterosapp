@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
-import { CustomProvider } from './CartContext';
 
 const styles = {
   container: {
@@ -25,23 +24,20 @@ const styles = {
 
 const Item = ({ product }) => {
 
-  const resultado = useContext(CustomProvider);
-  console.log(resultado);
-
     return(
       <Card sx={{ maxWidth: 345 }} style={styles.container}>
         <CardActionArea>
           <CardMedia 
           component="img"
           height="140"
-          image={product.title}
+          image={product.image}
           />
           <CardContent>
             <Typography
             gutterBottom
             variant="h5"
             component="div"
-            style={Stules.title}
+            style={styles.title}
             >
               {product.title}
             </Typography>

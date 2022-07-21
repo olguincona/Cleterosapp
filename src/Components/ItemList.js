@@ -11,7 +11,7 @@ const styles = {
   }
 }
 
-const ItemList = ({ product }) => {
+const ItemList = ({ items }) => {
   return (
     <div style={styles.container}>
       {items.map((product) => (

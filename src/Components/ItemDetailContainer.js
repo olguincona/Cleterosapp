@@ -17,7 +17,9 @@ const getItem = new Promise((res, rej)=>{
 });
 
 function ItemDetailContainer() {
+
   const [product, setProducts] =useState ([]);
+  const id = 6
   useEffect(() => {
     getItem
       .then((res) => {

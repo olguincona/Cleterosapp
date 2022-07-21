@@ -3,34 +3,33 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import { useParams } from "react-router-dom";
 import { logRoles } from "@testing-library/react";
+import { useParams } from "react-router-dom";
 
-export const ItemListContainer = ({valor}) => {
+const ItemListContainer = ({valor}) => {
     const resultado = useParams();
     console.log(resultado);
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(true);
 
-       
+    const { categoryID } = useParams();       
 
     useEffect(() => {
-        const URL = categoryID
-            ? `https://fakestoreapi.com/products/category/${categoryID}`
+        const URL = categoryID? `https://fakestoreapi.com/products/category/${categoryID}`
             : 'https://fakestoreapi.com/products'; 
         fetch(URL)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.log(err))
             .finally(() => setLoaded(false))
-    }, [categoryName]);
+    }, [ URL ]);
     return (
         <>
             <h1>{valor}</h1>
-            {loaded ? <CircularProgress color="success" /> : <ItemList items={products} />}
+            {loaded? "": <ItemList items={products} />}
         </>
-    )
-    }
+    );
+};
 
 /* const productos = [
     {id:0, title:'Marco', description: 'Cuadro de bicicleta', price: 150, pictureUrl:'foto'},
