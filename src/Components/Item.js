@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { Link } from "react-router-dom";
+
 
 const styles = {
   container: {
@@ -23,6 +24,7 @@ const styles = {
 };
 
 const Item = ({ product }) => {
+
 
     return(
       <Card sx={{ maxWidth: 345 }} style={styles.container}>
