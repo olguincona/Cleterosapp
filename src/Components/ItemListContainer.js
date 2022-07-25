@@ -5,6 +5,8 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import { logRoles } from "@testing-library/react";
 import { useParams } from "react-router-dom";
+import { db } from "../firebase/firebase";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListContainer = ({valor}) => {
     const resultado = useParams();
@@ -15,14 +17,29 @@ const ItemListContainer = ({valor}) => {
     const { categoryID } = useParams();       
 
     useEffect(() => {
-        const URL = categoryID? `https://fakestoreapi.com/products/category/${categoryID}`
+        const productCollection = collection(db,'productos');
+        const q = query(productCollection, where('categoryID', '==', "men's clothing"));
+        getDocs(q)
+        .then(result => {
+            const lista = result.docs.map(doc => {
+                return {
+                    id: doc.id,
+                    ...doc.data(),
+                }
+            })
+            setProducts(lista);
+        })
+        .catch(err => console.log(err))
+        .finally(() => setLoaded(false))
+
+        /* const URL = categoryID? `https://fakestoreapi.com/products/category/${categoryID}`
             : 'https://fakestoreapi.com/products'; 
         fetch(URL)
             .then(res => res.json())
             .then(data => setProducts(data))
             .catch(err => console.log(err))
-            .finally(() => setLoaded(false))
-    }, [ URL ]);
+            .finally(() => setLoaded(false)) */
+    }, [ categoryID ]);
     return (
         <>
             <h1>{valor}</h1>

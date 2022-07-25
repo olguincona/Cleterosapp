@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import CircularProgress from "@mui/material/CircularProgress";
 import ItemDetail from "./ItemDetail";
+import { useParams } from 'react-router-dom';
+import { db } from '../firebase/firebase';
+import { getDoc, collection, doc } from "firebase/firestore";
 
-const product = [
-   {id:6, 
-    name:"Marco",
-    description: "Cuadro de bicicleta", 
-    price: 150, 
-    pictureUrl:"foto"
-  },
-];
 
-const getItem = new Promise((res, rej)=>{
-    setTimeout(() =>{
-        res(product);
-    }, 2000);
-});
-
-function ItemDetailContainer() {
-
-  const [product, setProducts] =useState ([]);
-  const id = 6
+export const ItemDetailContainer = () => {
+  const [product, setProduct] =useState ([]);
+  const [loaded, setLoaded] =useState (true)
+  
+  const {productId} = useParams();
   useEffect(() => {
-    getItem
-      .then((res) => {
-        setProducts(res.find((product)=>product.id == id));
-        })
-        .catch((error) => console.log(error));
-  }, []);
-  return <ItemDetail product={product}/>;
+    const productCollection = collection(db,'productos');
+    const refDoc = doc(productCollection, productId);
+    getDoc(refDoc)
+    .then(result => {
+      const producto = {
+        id: result.id,
+        ...result.data(),
+      }
+      setProduct(producto);
+    })
+    .catch(err => console.log(err))
+    .finally(() => setLoaded(false))
+
+
+    /* fetch(`https://fakestoreapi.com/products/${productId}`)
+    .then(res => res.json())
+    .then(data => setProduct(data))
+    .catch(err => console.log(err))
+    .finally(() => setLoaded(false)) */
+}, [productId]);
+return (
+  <>
+    {loaded ? <CircularProgress color="success" /> : <ItemDetail product={product} />}
+  </>
+)
 }
 
 export default ItemDetailContainer;
