@@ -7,37 +7,40 @@ const CustomProvider = ({ children }) => {
   const [products, setProducts] = useState([{name:'Marco'}, {price:150}, {quantity:10}]);
 
   const getQtyProducts = () => {
-    setCantidad
+    let qty = 0;
+    products.forEach(product => qty += product.qty);
+    return qty;
   }
 
   const addProduct = (product) => {
     if (isinCart(product.id)){
+      const found = products.find(p => p,id === product.id);
+      const index = products.indexOf(found);
       const aux = [...products];
-      const found = aux.find(p => p.id === product.id);
-      found.qty += product.qty;
+      aux[index].qty += product.qty;
       setProducts(aux);
-  
     }else{
       setProducts([...products, product])
     }
-    console.log("esta funcion agrega un Producto");
+    getQtyProducts();
   }
 
-  const removeProduct = (id) => {
-    console.log("esta funcion elimina un Producto");
-  }
-
-  const clear = () => {
-    console.log("esta funcion resetea la lista");
-  }
-
+  const deleteProduct = (id) => {
+    setProducts(products.filter(product => product.id !== id));
+    getQtyProducts();
+  };
+  
   const isinCart = (id) => {
-    products.some(product => product.id === id)
-    console.log("esta funcion verifica si esta en la lista");
+    return products.some(product => product.id === id)
   }
+  const clear = () => {
+    setProducts([]);
+    getQtyProducts();
+  }
+
   
   return (
-    <Provider value={{products, addProduct, removeProduct, clear, getQtyProducts}}>
+    <Provider value={{products, addProduct, deleteProduct, clear, getQtyProducts}}>
     {children}
     </Provider>
   )

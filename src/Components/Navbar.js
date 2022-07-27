@@ -1,11 +1,14 @@
 import React from "react";
-import carro from '../Assets/carro.png';
-import logo from '../Assets/pista.jpg'
-import './Navbar.css'
+import carro from "../Assets/carro.png";
+import logo from "../Assets/pista.jpg";
 import CartWidget from "./CartWidget";
 import { Category } from "@mui/icons-material";
 import { Link, NavLink } from "react-router-dom";
 
+const viewport = {
+    width: document.documentElement.clientWidth,
+    height: document.documentElement.clientHeight
+}
 const Navbar = () => {
     const categories = [
         {id:0, title:'Marco', route:"/category/marcos"},

@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { CartContext } from "./CartContext";
 import { BsCart4 } from 'react-icons/bs'
 
 const CartWidget = () => {
-    return (
+    const { getQtyProducts } = useContext(CartContext);
+        return (
         <>
-            <button>
-            <BsCart4 className='text-white' size={20}/>
-            </button>
+            <ShoppingCartIcon color="success" fontSize="large" />
+            <p>{getQtyProducts}</p>
         </>
         
     )
