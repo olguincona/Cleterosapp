@@ -3,7 +3,7 @@ import {CartContext} from './CartContext';
 import { Link } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import {doc, addDoc, collection, serverTimestamp, updateDoc} from 'firebase/firestore';
-import {ThemeContext} from '@emotio/react';
+import {ThemeContext} from '@emotion/react';
 import { useState } from 'react';
 
 const Cart = () => {
@@ -37,7 +37,7 @@ const Cart = () => {
         ?
         <h1>No hay productos, busca <Link to="/">aca</Link></h1>
         : <>{products.map(product => <h1 key={product.id}>{product.title}</h1>)}
-        <button onClick={finalizarcompra}>Finalizar</button>
+        <button onClick={finalizarCompra}>Finalizar</button>
         </>
       }
     </>

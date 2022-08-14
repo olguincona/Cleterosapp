@@ -14,9 +14,9 @@ const CustomProvider = ({ children }) => {
 
   const addProduct = (product) => {
     if (isinCart(product.id)){
-      const found = products.find(p => p,id === product.id);
-      const index = products.indexOf(found);
       const aux = [...products];
+      const found = aux.find(p => p.id === product.id);
+      const index = products.indexOf(found);
       aux[index].qty += product.qty;
       setProducts(aux);
     }else{

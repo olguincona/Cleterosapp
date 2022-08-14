@@ -13,7 +13,7 @@ const ItemDetail = ({product}) => {
     setBuyFinalized(true);
   }
   return (
-    <div style={style.infoContainer}>
+    <div style={styles.infoContainer}>
       <img style={styles.img} src={product.image} alt={product.title} />
       <div style={styles.infoTextContainer}>
         <div style={styles.infoText}>
