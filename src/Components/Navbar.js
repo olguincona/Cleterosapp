@@ -21,16 +21,16 @@ const Navbar = () => {
     return (
         <>
             <header>
-                <div className="divfondo">
-                    <Link to="/"><img src={logo} alt="" /></Link>
-                    <h1>Tienda online</h1>
-                </div>
                 <div>
-                    <nav>
-                        {categories.map((category) => <NavLink key={category.id} to={category.route} >{category.title}</NavLink>)}
+                    <nav className='felx justify-center items-center bg-black py-2 text-xl justify-between text-white'>
+                        {categories.map((category) => <NavLink key={category.id} to={category.route} className='justify-between items-center' >{category.title}</NavLink>)}
                     </nav>
-                   <Link to="/cart"><CartWidget /></Link>
+                    <Link to="/cart"><CartWidget  /></Link>
                 </div> 
+                <div>
+                    <h1>Tienda online</h1>
+                    <Link to="/"><img src={logo} alt="" /></Link>
+                </div>
             </header>
         </>
         
