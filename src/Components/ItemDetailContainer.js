@@ -16,16 +16,13 @@ export const ItemDetailContainer = () => {
     const refDoc = doc(productCollection, productId);
     getDoc(refDoc)
     .then(result => {
-      const producto = {
+      setProduct({
         id: result.id,
         ...result.data(),
-      }
-      setProduct(producto);
+      })
     })
     .catch(err => console.log(err))
     .finally(() => setLoaded(false))
-
-
     /* fetch(`https://fakestoreapi.com/products/${productId}`)
     .then(res => res.json())
     .then(data => setProduct(data))

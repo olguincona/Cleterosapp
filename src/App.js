@@ -2,33 +2,25 @@ import React from 'react';
 import Navbar from './Components/Navbar.js';
 import './App.css';
 import ItemListContainer from './Components/ItemListContainer.js';
-import CartWidget from './Components/CartWidget.js';
-import Micomponente from './Components/Micomponente.js';
 import ItemDetailContainer from './Components/ItemDetailContainer.js';
 import Cart from './Components/Cart.js';
-import CustomProvider from './Components/CartContext.js';
-
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import { CartContext } from './Components/CartContext.js';
+import CartCustomProvider from './Components/CartContext.js';
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
-      <CustomProvider>
+      <CartCustomProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<ItemListContainer valor="Hola"/>} />
-          <Route path="/category/:categoryId" element={<ItemListContainer valor="Hola"/>} />
+          <Route path="/" element={<ItemListContainer valor="Bienvenido al sitio"/>} />
+          <Route path="/category/:categoryId" element={<ItemListContainer valor="Bienvenido al sitio"/>} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-        </CustomProvider>
-      </BrowserRouter>
+      </CartCustomProvider>
+    </BrowserRouter>
   );
 }
 

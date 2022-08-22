@@ -1,10 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState} from 'react'
 
 export const CartContext = createContext();
 const { Provider } = CartContext;
 
-const CustomProvider = ({ children }) => {
-  const [products, setProducts] = useState([{name:'Marco'}, {price:150}, {quantity:10}]);
+const CartCustomProvider = ({ children }) => {
+  const [products, setProducts] = useState([]);
 
   const getQtyProducts = () => {
     let qty = 0;
@@ -46,4 +46,4 @@ const CustomProvider = ({ children }) => {
   )
 }
  
-export default CustomProvider
+export default CartCustomProvider
