@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { CartContext } from "./CartContext";
-import { BsCart4 } from 'react-icons/bs'
+import { CartContext } from "../../Context/CartContext";
 
 const CartWidget = () => {
     const { getQtyProducts } = useContext(CartContext);

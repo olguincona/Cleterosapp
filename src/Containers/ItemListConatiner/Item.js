@@ -24,36 +24,38 @@ const styles = {
 };
 
 const Item = ({ product }) => {
-
-
-    return(
-      <Card sx={{ maxWidth: 345 }} style={styles.container}>
-        <CardActionArea>
-          <CardMedia 
+  return (
+    <Card sx={{ maxWidth: 345 }} style={styles.container}>
+      <CardActionArea>
+        <CardMedia
           component="img"
           height="140"
           image={product.image}
-          />
-          <CardContent>
-            <Typography
+          alt={product.title}
+        />
+        <CardContent>
+          <Typography
             gutterBottom
             variant="h5"
             component="div"
             style={styles.title}
-            >
-              {product.title}
-            </Typography>
-            <Typography
-            variant="body2"
-            color="text.secondary"
-            >
-              {product.price}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    )
-}
-
+          >
+            {product.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            ${product.price}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Link to={`/product/${product.id}`}>
+          <Button size="small" color="primary">
+            Ver Detalles
+          </Button>
+        </Link>
+      </CardActions>
+    </Card>
+  );
+};
 
 export default Item

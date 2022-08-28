@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import CircularProgress from "@mui/material/CircularProgress";
 import ItemDetail from "./ItemDetail";
 import { useParams } from 'react-router-dom';
-import { db } from '../firebase/firebase';
+import { db } from '../../firebase/firebase';
 import { getDoc, collection, doc } from "firebase/firestore";
 
 
-export const ItemDetailContainer = () => {
+export const ItemDetailsContainer = () => {
   const [product, setProduct] =useState ([]);
   const [loaded, setLoaded] =useState (true)
   
   const {productId} = useParams();
   useEffect(() => {
-    const productCollection = collection(db,'productos');
-    const refDoc = doc(productCollection, productId);
+    const productsCollection = collection(db,'productos');
+    const refDoc = doc(productsCollection, productId);
     getDoc(refDoc)
     .then(result => {
       setProduct({
@@ -23,11 +23,6 @@ export const ItemDetailContainer = () => {
     })
     .catch(err => console.log(err))
     .finally(() => setLoaded(false))
-    /* fetch(`https://fakestoreapi.com/products/${productId}`)
-    .then(res => res.json())
-    .then(data => setProduct(data))
-    .catch(err => console.log(err))
-    .finally(() => setLoaded(false)) */
 }, [productId]);
 return (
   <>
@@ -36,4 +31,4 @@ return (
 )
 }
 
-export default ItemDetailContainer;
+export default ItemDetailsContainer;

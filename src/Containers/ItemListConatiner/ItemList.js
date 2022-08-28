@@ -11,10 +11,10 @@ const styles = {
   }
 }
 
-const ItemList = ({ items }) => {
+const ItemList = ({ products }) => {
   return (
     <div style={styles.container}>
-      {items.map((product) => (
+      {products.map((product) => (
       <Item key={product.id} product={product} />
       ))}
     </div>
